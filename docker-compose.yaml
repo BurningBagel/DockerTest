@@ -2,7 +2,7 @@ services:
   dockertest:
     image: burningbagel/dockertest
     labels:
-      - com.centurylinklabs.watchtower.enable:"true"
+      - com.centurylinklabs.watchtower.enable:true
     container_name: dockertest
     ports:
       - 8080:8080 
