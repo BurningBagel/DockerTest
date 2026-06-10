@@ -1,8 +1,6 @@
 services:
   dockertest:
     image: burningbagel/dockertest
-    labels:
-      - com.centurylinklabs.watchtower.enable:true
     container_name: dockertest
     ports:
       - 8080:8080 
@@ -13,8 +11,8 @@ services:
   watchtower:
     image: nickfedor/watchtower
     environment:
-        - WATCHTOWER_POLL_INTERVAL=60
-        - WATCHTOWER_LABEL_ENABLE=TRUE
+        - WATCHTOWER_POLL_INTERVAL=20
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-    container_name: watchtower 
+    container_name: watchtower
+    command: dockertest 
